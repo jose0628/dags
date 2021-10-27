@@ -1,11 +1,10 @@
 import datetime
-import airflow
 from airflow.models import DAG
 from airflow.operators.python_operator import PythonOperator
 
 
 DAG = DAG(
-    dag_id='exercise3',
+    dag_id='session1.exercise3',
     start_date = datetime.datetime.now(),
     schedule_interval="@daily"
 )

@@ -13,7 +13,7 @@ def greet():
 
 
 dag = DAG(
-        'exercise1',
+        'session1.exercise1.sol',
         start_date=datetime.datetime.now())
 
 #
@@ -25,3 +25,4 @@ greet_task = PythonOperator(
    python_callable=greet,
    dag=dag
 )
+
