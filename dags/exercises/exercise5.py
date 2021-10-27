@@ -33,7 +33,7 @@ greet_task = PythonOperator(
 # create_table = PostgresOperator(
 #     task_id="create_table",
 #     dag=dag,
-#     postgres_conn_id="rds",
+#     postgres_conn_id=<CONNECTION_ID>,
 #     sql='''
 #             CREATE TABLE IF NOT EXISTS job_titles (job_title VARCHAR(100),suspended VARCHAR(100));
 #         '''
@@ -42,14 +42,14 @@ greet_task = PythonOperator(
 # copy_task = PythonOperator(
 #     task_id='load_from_s3_to_rds',
 #     dag=dag,
-#     python_callable=load_data_to_rds
+#     python_callable=<FUNCTION>
 # )
 
 # data_validation = PostgresOperator(
 #     task_id="results_validation_summary",
 #     dag=dag,
-#     postgres_conn_id="rds",
-#     sql=sql_statements.VALIDATE_RESULTS
+#     postgres_conn_id=<CONNECTION_ID>,
+#     sql=<SQL_QUERY>
 # )
 
-greet_task
+
