@@ -13,7 +13,7 @@ def greet():
 
 
 dag = DAG(
-        'session1.exercise1.sol',
+        'session1.exercise1',
         start_date=datetime.datetime.now())
 
 #
