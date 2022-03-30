@@ -2,9 +2,10 @@ import datetime
 from airflow.models import DAG
 from airflow.operators.python_operator import PythonOperator
 
+'''This exercise will be deprecated in the next version'''
 
 DAG = DAG(
-    dag_id='session1.exercise3',
+    dag_id='session1.exercise3_deprecated',
     start_date = datetime.datetime.now(),
     schedule_interval="@daily"
 )
