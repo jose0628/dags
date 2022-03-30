@@ -39,7 +39,7 @@ create_table = PostgresOperator(
     dag=dag,
     postgres_conn_id='rds',
     sql='''
-            CREATE TABLE IF NOT EXISTS job_titles (job_title VARCHAR(100),suspended VARCHAR(100));
+            CREATE TABLE IF NOT EXISTS job_titles (job_title VARCHAR(100),language VARCHAR(100),suspended VARCHAR(100));
         '''
 )
 
