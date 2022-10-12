@@ -1,12 +1,13 @@
 CREATE_JOB_TITLE_TABLE_SQL = """
 CREATE TABLE IF NOT EXISTS job_titles (
 job_title VARCHAR(100),
+language VARCHAR(100),
 suspended VARCHAR(100));
 """
 
 COPY_SQL ="""
 SELECT aws_s3.table_import_from_s3(
-'{}', 'job_title,suspended', '(format csv, header true)',
+'{}', 'job_title,location,suspended', '(format csv, header true)',
 '{}',
 '{}',
 'us-east-1',
@@ -17,8 +18,8 @@ SELECT aws_s3.table_import_from_s3(
 
 COPY_ALL_JOB_TITLES_SQL = COPY_SQL.format(
     "job_titles",
-    "bucketdatalakes",
-    "/sample_s3_file.csv"
+    "datalake2bucket",
+    "/work_status.csv"
 )
 
 
