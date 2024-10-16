@@ -19,7 +19,8 @@ def load_data_to_rds(*args, **kwargs):
     aws_hook = AwsBaseHook(aws_conn_id='aws_default', client_type='s3')
     credentials = aws_hook.get_credentials()
     logging.info(credentials)
-    rds_hook = PostgresHook(postgres_conn_id='rds', schema='datalake2')
+    rds_hook = PostgresHook(postgres_conn_id='rds', schema='datalake1')
+    logging.info(sql_statements.COPY_ALL_JOB_TITLES_SQL.format(credentials.access_key, credentials.secret_key, credentials.token))
     rds_hook.run(sql_statements.COPY_ALL_JOB_TITLES_SQL.format(credentials.access_key, credentials.secret_key, credentials.token))
 
 
@@ -39,7 +40,7 @@ create_table = PostgresOperator(
     dag=dag,
     postgres_conn_id='rds',
     sql='''
-            CREATE TABLE IF NOT EXISTS job_titles (job_title VARCHAR(100),language VARCHAR(100),suspended VARCHAR(100));
+            CREATE TABLE IF NOT EXISTS job_titles (job_title VARCHAR(100),location VARCHAR(100),suspended VARCHAR(100));
         '''
 )
 
@@ -58,3 +59,5 @@ data_validation = PostgresOperator(
 
 
 greet_task >> create_table >> copy_task >> data_validation
+
+# greet_task >> create_table >> copy_task

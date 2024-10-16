@@ -23,7 +23,7 @@ def division():
 
 dag = DAG(
     "session1.exercise4",
-    schedule_interval='@hourly',
+    schedule_interval='@once',
     start_date=datetime.datetime.now() - datetime.timedelta(days=1))
 
 hello_world_task = PythonOperator(

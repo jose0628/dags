@@ -1,7 +1,7 @@
 CREATE_JOB_TITLE_TABLE_SQL = """
 CREATE TABLE IF NOT EXISTS job_titles (
 job_title VARCHAR(100),
-language VARCHAR(100),
+location VARCHAR(100),
 suspended VARCHAR(100));
 """
 
@@ -18,7 +18,7 @@ SELECT aws_s3.table_import_from_s3(
 
 COPY_ALL_JOB_TITLES_SQL = COPY_SQL.format(
     "job_titles",
-    "datalake2bucket",
+    "bucketdatalakes",
     "/work_status.csv"
 )
 

@@ -1,6 +1,8 @@
 import datetime
 import logging
 
+import pandas as pd
+
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 
@@ -9,18 +11,19 @@ from airflow.operators.python_operator import PythonOperator
 #
 def greet():
     logging.info('Hello World Engineers!')
-
+#
 def second_greet():
     logging.info('Hello Data Scientists!')
 
 dag = DAG(
         'session1.exercise1',
-        schedule_interval='@hourly',
-        start_date=datetime.datetime.now() - datetime.timedelta(days=1))
+        schedule_interval='@once',
+        start_date=datetime.datetime.now())
 
 #
 # TODO: Uncomment the operator below and replace the arguments labeled <REPLACE> below
 #
+
 greet_task = PythonOperator(
    task_id="greet_task",
    python_callable=greet,
