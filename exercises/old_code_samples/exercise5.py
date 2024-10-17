@@ -1,15 +1,13 @@
 
 import datetime
 import logging
-
 from airflow import DAG
 from airflow.providers.amazon.aws.hooks.base_aws import AwsBaseHook
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.operators.postgres_operator import PostgresOperator
 from airflow.operators.python_operator import PythonOperator
 
-import sql_statements
-
+from exercises.old_code_samples import sql_statements
 
 def start():
     logging.info('Starting the DAG')
