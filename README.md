@@ -14,7 +14,6 @@ This repository contains various Python scripts and Apache Airflow examples used
 - **Example1_Simple_dag.py**: A basic Apache Airflow DAG example demonstrating simple task scheduling.
 - **Example2_load_data_dag.py**: An Airflow DAG that illustrates how to load data into a data lake or warehouse.
 - **Example3_Nodes_Sequence.py**: Shows how to use nodes and dependencies in an Airflow DAG.
-- **Example4_s3_file_upload_dag.py**: Demonstrates uploading a file to Amazon S3 using an Airflow DAG.
 - **sample_boto3_s3.py**: A standalone Python script for interacting with Amazon S3 using the Boto3 library.
 - **transfer_CSV_to_RDS.py**: Shows how to transfer data from an S3 bucket to an Amazon RDS instance using Python.
 
