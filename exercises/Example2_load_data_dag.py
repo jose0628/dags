@@ -1,19 +1,34 @@
 import datetime
 import psycopg2
 import logging
+import yaml # pip install pyyaml
+import os
 
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
+
+# Get the directory of the current script
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the full path to the YAML file
+yaml_path = os.path.join(current_directory, "config.yaml") #todo: change to your own yaml file
+
+# Load the YAML configuration file
+with open(yaml_path, "r") as yaml_file:
+    config = yaml.safe_load(yaml_file)
+
+# Extract the values
+ENDPOINT = config['database']['endpoint']
+DB_NAME = config['database']['db_name']
+USERNAME = config['database']['username']
+PASSWORD = config['database']['password']
+
 
 def start_process():
     logging.info("Starting the DAG")
 
 def load_data():
 
-    ENDPOINT = 'datalake1.cr6fdztzvvs4.us-east-1.rds.amazonaws.com'
-    DB_NAME = 'datalake1'
-    USERNAME = 'pepe'
-    PASSWORD = '1234567890'
     try:
         logging.info("host={} dbname={} user={} password={}".format(ENDPOINT, DB_NAME, USERNAME, PASSWORD))
         conn = psycopg2.connect("host={} dbname={} user={} password={}".format(ENDPOINT, DB_NAME, USERNAME, PASSWORD))
@@ -58,7 +73,7 @@ def load_data():
 
 
 dag = DAG(
-    "example_load_data_dag",
+    "Example_2_load_data_dag",
     schedule_interval='@once',
     start_date=datetime.datetime.now() - datetime.timedelta(days=1))
 

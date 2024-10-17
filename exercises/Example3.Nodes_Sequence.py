@@ -22,7 +22,7 @@ def division():
 
 
 dag = DAG(
-    "session1.exercise4",
+    "Example_3.Nodes_Sequence",
     schedule_interval='@once',
     start_date=datetime.datetime.now() - datetime.timedelta(days=1))
 
