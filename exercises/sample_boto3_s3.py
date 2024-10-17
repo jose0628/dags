@@ -1,6 +1,7 @@
 import boto3
 import logging
 import os
+import datetime
 
 # AWS credentials should be managed via environment variables for better security
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
@@ -28,6 +29,6 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     bucket_name = 'temporallambalayers'
     source_file = '/Users/jose.mancera/airflow/dags/exercises/data_sample/work_status.csv'
-    destination_key = 'work_status.csv'
+    destination_key = 'work_status_{}.csv'.format(datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S'))
 
     upload_file_to_s3(bucket_name, source_file, destination_key)
