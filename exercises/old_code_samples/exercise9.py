@@ -60,7 +60,7 @@ def update_rds_table():
     conn.close()
 
 
-dag = DAG('Exercise_9_RDS_dag',
+dag = DAG('Exercise_RDS_dag_deprecated',
           description='Update RDS table with Airflow',
           schedule_interval='@once',
           start_date=datetime.datetime.now() - datetime.timedelta(days=1))

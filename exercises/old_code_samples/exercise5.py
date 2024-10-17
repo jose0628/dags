@@ -25,7 +25,7 @@ def load_data_to_rds(*args, **kwargs):
 
 
 dag = DAG(
-    'session2.exercise5',
+    'session2.exercise5_old',
     start_date=datetime.datetime.now() - datetime.timedelta(days=1)
 )
 

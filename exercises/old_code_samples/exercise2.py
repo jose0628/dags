@@ -28,7 +28,7 @@ def get_pandas():
     logging.info(df)
 
 dag = DAG(
-    'session1.exercise2',
+    'session1.exercise2_old',
     schedule_interval='@once',
     start_date=datetime.datetime.now() - datetime.timedelta(days=1)
 )
