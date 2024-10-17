@@ -1,0 +1,11 @@
+database:
+  endpoint: anonymized-db.endpoint.com
+  db_name: anonymized_db
+  username: anonymized_user
+  password: 'anonymized_password'
+
+aws:
+  access_key_id: 'ANONYMIZED_ACCESS_KEY'
+  secret_access_key: 'ANONYMIZED_SECRET_ACCESS_KEY'
+  session_token: 'ANONYMIZED_SESSION_TOKEN'
+  region: anonymized-region
