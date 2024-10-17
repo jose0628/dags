@@ -49,7 +49,7 @@ upload_task = PythonOperator(
     op_kwargs={
         'bucket_name': 'temporallambalayers',
         'source_file': '/Users/jose.mancera/airflow/dags/exercises/data_sample/work_status.csv',
-        'destination_key': 'work_status_1.csv'
+        'destination_key': 'work_status.csv'
     })
 
 upload_task
