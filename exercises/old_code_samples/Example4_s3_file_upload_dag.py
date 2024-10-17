@@ -20,7 +20,7 @@ logging.info(f"AWS_ACCESS_KEY_ID: {AWS_ACCESS_KEY_ID}")
 logging.info(f"AWS_SECRET_ACCESS_KEY: {AWS_SECRET_ACCESS_KEY}")
 logging.info(f"AWS_SESSION_TOKEN: {AWS_SESSION_TOKEN}")
 
-dag = DAG('Example_4_s3_file_upload_dag',
+dag = DAG('Example_s3_file_upload_dag_old',
           description='Upload files to S3',
           schedule_interval='@once',
           start_date=datetime.datetime.now())
